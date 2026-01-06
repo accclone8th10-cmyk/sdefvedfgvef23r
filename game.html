@@ -1,49 +1,33 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Cổng Game Tu Tiên</title>
-    <style>
-        body {
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+  <meta charset="UTF-8">
+  <title>Huyền Vũ Tu Tiên - Tu Luyện</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .game-frame {
-            width: 800px;
-            height: 600px;
-            border: 5px solid #4facfe;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 0 20px #4facfe;
-            background: #000;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
-    <div class="game-frame">
-        <iframe 
-            src="index.html"
-            sandbox="allow-scripts allow-same-origin"
-            referrerpolicy="no-referrer"
-        ></iframe>
+  <!-- UI -->
+  <div id="ui-layer">
+    <div class="level-text" id="level-name">Cảnh giới: Luyện Khí</div>
+    <div>Linh khí: <span id="spirit-count">0</span></div>
+    <div class="stat-bar">
+      <div id="progress"></div>
     </div>
+    <div class="hint">WASD: Di chuyển | Click: Ngồi thiền | SPACE: Đột phá</div>
+  </div>
 
-    <script>
-        // Chặn chuột phải ở cấp portal
-        document.addEventListener("contextmenu", e => e.preventDefault());
-    </script>
+  <!-- Canvas -->
+  <canvas id="game"></canvas>
 
+  <script src="main.js"></script>
+
+  <script>
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("dragstart", e => e.preventDefault());
+    window.addEventListener("mousedown", () => window.focus());
+  </script>
 </body>
 </html>
